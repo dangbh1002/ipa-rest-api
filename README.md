@@ -24,18 +24,19 @@ We will also use collinsdictionary.com in order to obtain the phonetic result of
 1. Make sure you have Node JS installed (Download here: https://nodejs.org/en/download/current/)
 2. Make sure you have Redis installed (Download here: http://redis.io/download)
 3. Clone the repo into chosen directory and move to that directory
-4. Run the following commands
+4. Run the following commands to import data for redis
 ```
 npm install
 redis-cli < data/alphabet_import.sh
 ```
 5. Launch the Redis client using redis-cli and add a secret key that will be used for the JSON Web Tokens :
 ```
+redis-cli
 SET jwt:secret <enter secret key here>
 ```
 6. Generate a JSON Web Token by running the following command with a desired email (This way you can restrict the API usage in order to prevent abuse)
 ```
-scripts/token.js <enter email address>
+node scripts/token.js <enter email address>
 ```
 The tokens and their information will be stored in redis, you can see the list of keys by accessing the set with name jwt:tokens.
 7. Start the app server by running the following command :
@@ -43,6 +44,8 @@ The tokens and their information will be stored in redis, you can see the list o
 node server.js
 ```
 8. You can make API calls in order to retrieve information (Make sure that for the request Header name to use Authorization and place Bearer before the Token. ).
+Key: Authorization
+Value: Bearer <enter token instep 6>
 
 Some examples are :
 ```
@@ -69,14 +72,14 @@ Which returns :
   ...
 ```
 ```
-GET localhost:3000/ipa/fr/ordinateur
+GET localhost:3000/ipa/en/unfortunately
 ```
 Which returns :
 ```
 {
-  "language": "fr",
-  "word": "ordinateur",
-  "phonetic": "ɔʀdinatœʀ"
+    "language": "en",
+    "word": "unfortunately",
+    "phonetic": "ʌnfɔːʳtʃʊnətli"
 }
 ```
 
