@@ -43,9 +43,9 @@ The tokens and their information will be stored in redis, you can see the list o
 ```
 node server.js
 ```
-8. You can make API calls in order to retrieve information (Make sure that for the request Header name to use Authorization and place Bearer before the Token. ).
-Key: Authorization
-Value: Bearer <enter token instep 6>
+8. You can make API calls in order to retrieve information (Make sure that for the request Header name to use Authorization and place Bearer before the Token. ).  
+Key: Authorization  
+Value: Bearer <enter token instep 6>  
 
 Some examples are :
 ```
