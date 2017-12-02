@@ -9,4 +9,3 @@ describe('English International Phonetic Alphabet', () => {
         .end(done);
     });
 });
-
