@@ -38,7 +38,7 @@ SET jwt:secret <enter secret key here>
 ```
 node scripts/token.js <enter email address>
 ```
-The tokens and their information will be stored in redis, you can see the list of keys by accessing the set with name jwt:tokens.
+The tokens and their information will be stored in redis, you can see the list of keys by accessing the set with name jwt:tokens.  
 7. Start the app server by running the following command :
 ```
 node server.js
